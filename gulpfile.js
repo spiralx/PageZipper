@@ -23,7 +23,7 @@ const srcs = {
   libs: [
     'lib/jquery.js',
     'lib/jstoolkit.js',
-    'lib/levenshtein.js',
+    'lib/levenshtein.js'
   ],
   pgzp_srcs: [
     'pagezipper.js',

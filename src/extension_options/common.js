@@ -27,21 +27,10 @@ function getFromList(url, callback) {
   });
 }
 
+// Use URI.js to correctly handle Second Level Domains such as .co.uk or .com.au
 function getDomain(url) {
-  if (url.indexOf("http") !== 0) {
-    url = "http://" + url;
-  }
-  var a = document.createElement("a");
-  a.href = url;
-  var domain = a.hostname;
-
-  // Remove subdomain, if present
-  if (domain.split(".").length > 2) {
-    let splits = domain.split(".");
-    domain = splits[ splits.length - 2 ] + "." + splits[ splits.length - 1 ];
-  }
-
-  return domain;
+  const uri = new URI(url)
+  return uri.domain()
 }
 
 function isActiveDomain(domainValue) {
